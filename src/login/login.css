@@ -1,0 +1,44 @@
+#form-login {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 7rem auto 0 auto;
+    width: 21%;
+}
+    #form-login label {
+        font-size: 1.2rem;
+        height: 3rem;
+        padding: 0.5rem;
+        margin-bottom: 0.2rem;
+    }
+
+    #form-login input {
+        appearance: none;        
+        font-size: 1.3rem;
+        margin-bottom: 1rem;
+        width: 25rem;
+        height: 3rem;
+        padding: 0.7rem;
+        border: none;
+        border-bottom: 2px solid var(--brown_100);
+        background-color: white;
+    }
+
+    #form-login button {
+        height: 3rem;
+        font-size: 1.3rem;
+        border: none;
+        background-color: var(--brown_40);
+        margin-top: 2rem;
+    }
+        #form-login button:hover {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
+
+
+
+    
+
+

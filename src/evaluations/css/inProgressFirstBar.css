@@ -1,0 +1,40 @@
+/* Fixed div */
+#divInProgressFirst {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 7rem;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed; /* Make it stick/fixed */
+    top: 0; /* Stay on top */
+    transition: top 0.4s; /* Transition effect when sliding down (and up) */
+    background-color: var(--brown_100);
+}
+
+
+
+/* Main div */
+#divInProgressFirstMain {
+    display: grid;
+    grid-template-columns: 10% 70% 10% 10%;
+    justify-items: center;
+    align-items: center;
+    height: 100%;
+    width: 70%;
+    margin: 0 auto;
+}
+    #divInProgressFirstMainLabels {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        justify-items: center;
+        align-items: center;        
+        width: 100%;
+        margin: 0 auto;
+    }
+
+
+
+

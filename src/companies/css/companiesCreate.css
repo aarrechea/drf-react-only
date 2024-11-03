@@ -1,0 +1,172 @@
+/* General classes */        
+.name {
+    font-weight: bold;
+}
+
+
+.mainDivs {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;    
+    row-gap: 0.5rem;
+    width: 70%;    
+    margin: 1rem auto 3rem auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 1rem;
+    box-shadow: 3px 3px 5px var(--contrast_100);
+}
+
+    .mainDivs:last-child {
+        margin-bottom: 15rem;
+    }
+
+
+.companySelects {
+    font-size: 1.2rem;    
+    padding: 1rem;
+    border: none;
+    background-color: white;    
+}
+
+
+
+/* Title */
+#divInitialTitle {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    margin: 8rem auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+
+/* Company name */
+#divCompanyName {
+    grid-template-columns: 10% 90%;
+}
+
+    #divCompanyName textarea {
+        resize: none;
+        padding: 0.5rem;
+        height: 3rem;
+        background-color: white;
+        border: none;        
+    }
+
+
+
+/* Geographic data */
+#divGeographicData {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;    
+}
+
+    #divGeographicData textarea {
+        resize: none;
+        padding: 0.5rem;
+        height: 3rem;
+        background-color: white;
+        border: none;  
+        border-bottom: 1px solid black;
+    }
+
+    #divGeographicData div {
+        display: grid;
+        grid-template-columns: 10% 90%;
+        column-gap: 1rem;
+        margin: 0.5rem auto 0.5rem auto;
+        width: 50%;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #divGeographicData div:nth-child(3) {
+        width: 20%;
+        grid-template-columns: 30% 70%;        
+    }   
+
+        #divGeographicData div:nth-child(3) textarea {
+            text-align: center;
+        }  
+
+    #divGeographicData div:nth-child(4) {
+        width: 90%;        
+    }        
+
+        #divGeographicData select {            
+            width: 85%;            
+            margin-left: 1rem;
+        }
+
+
+
+/* Industry selectors */
+#divCompanySelectIndustry {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    row-gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+
+
+/* Other data */
+#divCompanyOtherData div:nth-child(1) {
+    display: grid;
+    grid-template-columns: 60% 15% 25%;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 50%;
+    height: 100%;
+}
+
+    #divCompanyOtherData div:nth-child(1) input[type=number] {
+        height: 3rem;
+        width: 6rem;
+        padding: 0.5rem;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    #divCompanyOtherData div:nth-child(1) input[type=checkbox] {
+        height: 1.5rem;
+        width: 1.5rem;        
+        margin: 0 auto;
+    }
+
+#divCompanyOtherData div:nth-child(2) {
+    display: grid;
+    grid-template-columns: 15% 85%;    
+    justify-content: center;
+    align-items: center;    
+    margin: 0 auto;
+    width: 100%;
+    height: 7rem;
+}    
+
+    #divCompanyOtherData div:nth-child(2) textarea {
+        resize: none;
+        height: 90%;
+        width: 95%;
+        border: none;        
+        background-color: white;
+        padding: 1rem;
+        margin: 0 auto;        
+    }    
+
+
+
+
+

@@ -1,0 +1,11 @@
+#generalInput {
+    width: 15rem;
+    height: 4rem;
+    margin: 0 auto;
+    padding: 1rem;
+    background-color: white;    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-color: #ddd;    
+    border-radius: 4%;
+    font-size: 1.3rem;
+}

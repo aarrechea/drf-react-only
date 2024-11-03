@@ -1,0 +1,49 @@
+/* Relation bar fixed */
+#divRelationBarFixed {
+    width: 100%;
+    height: 7.5rem;
+    position: fixed; /* Make it stick/fixed */
+    top: 7.5rem; /* Stay on top */
+    transition: top 0.4s; /* Transition effect when sliding down (and up) */
+    background-color: white;
+}
+
+
+
+/* Relation bar */
+#divRelationBar {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    width: 70%;
+    height: 100%;
+}
+
+    #divRelationBar button {
+        width: 8rem;
+        height: 4.5rem;
+        box-shadow: 0 2px 4px darkslategray;
+        border-radius: 0.5rem;
+        background-color: white;
+        border: 1px solid green;
+        font-size: 1.1rem;
+        margin: 0 auto;
+        transition: all 0.03s linear;
+    }
+
+        #divRelationBar button:hover {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #divRelationBar button:active {
+            box-shadow: 0 0 2px darkslategray;
+            transform: translateY(2px);
+            color: green;
+        }
+
+
+

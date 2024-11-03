@@ -1,0 +1,25 @@
+#generalButton {
+    width: 7.5rem;
+    height: 4rem;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px darkslategray;
+    border-radius: 0.5rem;
+    background-color: white;
+    border: 1px solid green;
+    font-size: 1.1rem;
+    margin: 0 auto;
+    transition: all 0.03s linear;
+}    
+    .generalButtonClass:hover {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .generalButtonClass:active {
+        box-shadow: 0 0 2px darkslategray;
+        transform: translateY(2px);
+        color: green;
+    }
+
+
+

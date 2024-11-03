@@ -1,0 +1,99 @@
+/* General components */
+.createElementPageSeparator {
+    width: 50%;
+    margin: 2rem auto 2rem auto;
+    background-color: green;
+    height: 0.1rem;
+}
+    .createElementPageSeparator:last-child {
+        width: 50%;
+        margin: 20rem auto 2rem auto;
+        background-color: white;
+        height: 0.1rem;
+    }
+
+
+
+/* Div create message */
+#div-create-message {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    margin: 4rem auto 0 auto;
+    text-align: center;
+    width: 70%;
+    font-size: 1.5rem;
+    height: 4rem;
+    transition: margin 1s;
+}
+
+    #lbl-create-message {        
+        color: green;
+        transition: color 2s;        
+        padding: 1rem;
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+
+
+/* Div create 1 */
+#div-create-1 {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;    
+    margin: 1rem auto 0 auto;
+    width: 70%;
+}
+
+#div-create-1-select {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 0.5rem;
+    text-align: center;
+}
+    #div-create-1-select label {
+        text-align: center;
+        font-size: 1.2rem;
+        margin-right: 1rem;
+    }
+        #div-create-1-select label:hover {
+            cursor: pointer;
+        }
+
+    #lblName {
+        font-size: 1rem;
+        margin-left: 5rem;
+    }
+
+    #div-create-1-select select {
+        width: 5rem;
+        padding: 1rem;
+        font-size: 1.3rem;
+        text-align: center;
+        margin: 0 auto;        
+        background-color: white;
+        border-radius: 4%;    
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-color: #ddd;
+    }    
+
+            
+    
+
+
+
+
+
+
+
+
+
+
+
+            

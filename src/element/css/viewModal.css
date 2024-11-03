@@ -1,0 +1,118 @@
+/* View modal process */
+#divViewModalProcess {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+
+
+/* View modal process main */
+#divViewModalProcessMain {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    width: 70%;
+    height: 80%;
+    margin: 2rem auto 0 auto;
+    background-color: white;
+}
+
+
+
+/* User creator name */
+#divUserCreatorName {
+    display: grid;
+    grid-template-columns: 40% 10% 50%;
+    padding: 0.5rem;    
+    height: 8rem;
+    width: 100%;
+}
+
+    #divUserCreatorName label {
+        font-size: 1.1rem;
+        color: grey;
+        height: 2rem;
+    }
+
+    #divUserCreatorName textarea {
+        border: none;
+        background-color: white;
+        font-size: 1.3rem;
+        overflow: auto;
+    }
+
+
+
+/* Additional information textarea */
+#divAdditionalTextareaViewModal {
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 27rem;
+    width: 98%;
+    margin: 0 auto;    
+}
+
+    #divAdditionalTextareaViewModal textarea {
+        background-color: white;
+        resize: none;
+        border: none;
+        font-size: 1.2rem;
+        overflow: auto;
+    }
+
+
+
+/* Additional information buttons */    
+#divAdditionalViewModal {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    column-gap: 0.5rem;
+    width: 95%;
+    height: 4rem;
+    margin: 0 auto;
+}
+
+    #divAdditionalViewModal button {
+        height: 100%;
+        border: none;
+        background-color: white;
+    }
+
+        #divAdditionalViewModal button:hover {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
+
+/* Close button */
+#divBtnCloseViewModal {
+    display: grid;
+    grid-template-columns: 1fr;
+    margin: 0 auto;
+    width: 10rem;
+    height: 4rem;
+}
+
+    #divBtnCloseViewModal button {
+        height: 100%;
+        border: none;
+        background-color: white;
+    }
+
+        #divBtnCloseViewModal button:hover {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+
+
+

@@ -1,0 +1,11 @@
+.remove {
+    font-size: 1rem;
+}
+
+.remove:hover {
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+
+

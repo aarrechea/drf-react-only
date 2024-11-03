@@ -1,0 +1,14 @@
+/* Relation list */
+#divRelationList {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 16rem auto 0 auto;
+}
+
+
+
+

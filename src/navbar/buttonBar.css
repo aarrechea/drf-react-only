@@ -1,0 +1,66 @@
+/* --- Options menu ---  */
+#div-main {
+    display: grid;
+    grid-template-columns: 1fr;    
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    height: 3.5rem;
+    position: fixed; /* Make it stick/fixed */    
+    width: 100%;
+    transition: top 0.4s; /* Transition effect when sliding down (and up) */
+    background-color: var(--brown_100);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+    
+.navbar {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);    
+    width: 70%;    
+    height: 90%;
+    margin: 0 auto;    
+    border: none;
+    background-color: var(--brown_100);
+}
+    
+
+/* .navbar :nth-child(3) {
+    font-weight: bold;
+    color: blue;
+}
+ */
+
+/* --- Responsive design --- */
+@media only screen and (max-width: 1200px) {
+    .bar_menu {                
+        width: 35%;        
+        column-gap: 1rem;}
+
+    #div_include_general_menu {
+        height: 7rem;}
+
+    .navbar {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: auto;        
+        width: 50%;}
+
+    .last {
+        grid-column: 3 / 5;
+        grid-row: 2 / 3;}
+}
+
+
+
+/* Select element */
+#select-element {
+    background-color: var(--brown_100);
+    border: none;
+    height: 2rem;
+    width: 10rem;
+    padding: 0.3rem;    
+}
+    #select-element option {                
+        background-color: white;
+        height: 15rem;
+    }

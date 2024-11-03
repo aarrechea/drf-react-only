@@ -1,0 +1,42 @@
+/* ----- Menu bar styles ----- */
+#background_menu {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    align-items: center;
+    height: 4rem;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed; /* Make it stick/fixed */
+    top: 0; /* Stay on top */
+    transition: top 0.4s; /* Transition effect when sliding down (and up) */
+    background-color: var(--brown_100);
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+    #bar_menu {
+        display: grid;
+        grid-template-columns: 30% 70%;
+        justify-items: center;
+        align-items: center;
+        width: 70%;
+        height: 100%;
+        grid-column-gap: 4rem;    
+        margin: 0 auto;
+        text-align: center;           
+        font-size: 1.5rem;
+    }
+
+        #user_identification {
+            display: grid;
+            grid-template-columns: 1fr;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+            #user_identification span {
+                font-size: 1.5rem;
+                color: black;
+                margin-left: 1rem;
+            }

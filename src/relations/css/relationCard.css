@@ -1,0 +1,115 @@
+#divRelationCard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 70% 30%;    
+    width: 100%;
+    height: 11rem;
+    margin: 0rem auto 1.5rem auto;
+    border: 2px solid black;
+    border-radius: 2%;
+    justify-content: center;
+    align-items: center;    
+}
+
+    #divRelationCard:hover {
+        background-image: radial-gradient(white 95%, green);
+    }
+
+    #divRelationCard:hover button {
+        border: 0.5px solid black;
+    }
+
+    #divRelationCard:hover textarea {
+        font-weight: bold;
+    }
+
+    #divRelationCardMain {
+        display: grid;
+        grid-template-columns: 50% 25% 25%;    
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-bottom: 1px solid black;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+    }
+        #divRelationCardName {
+            display: grid;
+            grid-template-columns: 10% 90%;
+            margin: 0 auto;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 100%;
+        }
+
+            #divRelationCardMain textarea {
+                resize: none;
+                width: 100%;
+                height: 100%;
+                border: none;
+                padding: 0.3rem;
+                background-color: white;
+                overflow: auto;
+            }
+
+        #divRelationCardMainSecond {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        #divRelationCardMainButtons {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+
+            #divRelationCardMainButtons button {
+                width: 5rem;
+                height: 3rem;
+                background-color: white;
+                border: none;
+                /* border: 0.5px solid black; */
+                border-radius: 15%;
+            }
+
+                #divRelationCardMainButtons button:hover {
+                    cursor: pointer;
+                    font-weight: bold;
+                    color: green;
+                    border: 2px solid black;
+                }
+
+                #divRelationCardMainButtons button:nth-child(3):hover {
+                    color: red;
+                }
+
+                #divRelationCardMainButtons button:active {
+                    box-shadow: 0 0 2px darkslategray;
+                    transform: translateY(2px);
+                    color: green;
+                }
+
+
+        #divRelationCardSecond {
+            display: grid;
+            width: 80%;
+            margin: 0 auto;
+            grid-template-columns: 20% 5% 20% 5% 20% 5% 20% 5%;
+            padding: 1rem;
+        }
+
+
+.labels {
+    color: green;
+}        

@@ -1,0 +1,111 @@
+/* New relationship table */    
+#divNewTableTitle {
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    margin: 3rem auto 2rem auto;
+    text-align: center;
+    border-top: 2px solid var(--contrast_100);
+}
+
+    #divNewTableTitle button {
+        width: 9rem;
+        height: 4rem;
+        font-size: 1.2rem;
+        margin: 0 auto;
+        background-color: white;
+        border: 1px solid green;
+        box-shadow: 0 1px 3px darkslategray;
+        border-radius: 0.5rem;
+        transition: all 0.03s linear;
+    }
+    
+        #divNewTableTitle button:hover {
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        #divNewTableTitle button:active {
+            box-shadow: 0 0 2px darkslategray;
+            transform: translateY(2px);
+            color: green;
+        }
+
+    #divNewTableName {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding-top: 1rem;
+    }
+
+        #divNewTableName label {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;            
+        }
+
+        #divNewTableName textarea {
+            resize: none;
+            width: 100%;
+            font-size: 1.2rem;
+            border: none;
+            border-bottom: 1px solid black;
+            background-color: white;
+            padding: 0.5rem;
+        }
+
+        
+#divNewTable {
+    margin-top: 2rem;
+    width: 70%;
+    margin: 0 auto 20rem auto;
+}
+
+    #divNewTable table {
+        width: 100%;
+        text-align: center;
+    }
+
+
+#newTableBody td:nth-child(5), td:nth-child(6) {
+    text-align: left;
+}
+
+
+
+
+#newTableHeader th:nth-child(1),
+th:nth-child(2) {
+    width: 5%;        
+}
+
+#newTableHeader th:nth-child(3),
+ th:nth-child(4),
+ th:nth-child(6),
+ th:nth-child(7) {
+    width: 8%;
+}
+
+#newTableHeader th:nth-child(5) {
+    width: 58%;
+}
+
+
+
+/* New table body */
+#newTableBody button {
+    background-color: white;
+    border: none;
+}
+    #newTableBody button:hover {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+
+
+
+
+
+

@@ -1,0 +1,15 @@
+.buttonCss {
+    height: auto;
+    width: auto;
+    border-radius: 0.4rem;
+    border-width: 0.1rem;
+    font-size: 1.3rem;
+    background-color: rgba(0, 128, 255, 0.7);
+}
+
+
+.buttonCss:hover {
+    cursor: pointer;
+    font-size: 130%;
+    font-weight: bold;
+}

@@ -1,0 +1,173 @@
+/* Separator */
+.inProgressEvaSeparator {
+    width: 45%;
+    height: 0.1rem;    
+    background-color: var(--brown_100);
+    margin: 3rem auto 3rem auto;
+}
+    .inProgressEvaSeparator:last-child {
+        margin-top: 20rem;
+        background-color: white;
+    }
+
+
+
+/* Title */
+#divEvaMainInformationTitle{
+    margin: 13rem auto 0 auto;
+    text-align: center;
+}
+
+
+
+/* Information about the process being evaluated */
+#divEvaMainInformation {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 1rem;
+    width: 70%;
+    margin: 2rem auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+
+
+/* Definitions */
+#divDefinitions {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    width: 70%;
+    margin: 4rem auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+    #divDefinitions label {
+        font-size: 1.5rem;
+        font-weight: bold;
+    }
+
+    #divDefinitions textarea {
+        width: 90%;
+        height: 13rem;
+        overflow: auto;
+        font-size: 1.3rem;
+        padding: 0.7rem;
+        border: none;
+        background-color: white;
+        resize: none;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+
+
+/* Assessment */    
+#divAssessment {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    margin: 3rem auto 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#divAssessmentScoreTitle {
+    margin: 2rem auto 2rem auto;
+}
+
+#divAssessmentScore {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: auto;
+    row-gap: 1rem;
+    font-size: 1.5rem;
+    width: 50%;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+    #divAssessmentScore input {
+        width: 1.5rem;
+        height: 1.5rem;
+        justify-self: center;
+    }
+
+    #divAssessmentScore input:hover,
+    #divAssessmentScore label:hover {
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+
+
+/* Maturity scale */    
+#divAssessmentMaturityTitle {
+    width: 70%;
+    margin: 3rem auto 0 auto;
+    text-align: center;
+}
+
+#divAssessmentMaturityButtons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    width: 35%;
+    margin: 2rem auto 0 auto;
+    justify-content: center;
+    align-items: center;
+}
+
+#divAssessmentMaturityTextarea {
+    width: 70%;
+    margin: 3rem auto 0 auto;    
+}
+    #divAssessmentMaturityTextarea textarea {
+        width: 90%;
+        height: 15rem;
+        padding: 0.5rem;
+        background-color: white;
+        border: none;        
+        resize: none;
+        font-size: 1.3rem;
+        overflow: auto;
+    }
+
+
+
+/* Symptoms and questions */
+#divSymptomsQuestionsButtons     {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    width: 20%;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+#divSymptomsQuestionsTextarea {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem auto 0 auto;
+}
+    #divSymptomsQuestionsTextarea textarea {
+        width: 80%;
+        height: 30rem;
+        resize: none;
+        margin: 0 auto;
+        overflow: auto;
+        background-color: white;
+        font-size: 1.3rem;
+    }
+
+
+

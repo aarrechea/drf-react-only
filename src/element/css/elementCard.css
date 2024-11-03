@@ -1,0 +1,97 @@
+/* Div card */
+#div-card {
+    display: grid;
+    grid-template-columns: 85% 15%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;    
+    padding: 1rem;
+    border: 2px solid var(--contrast_100);
+    border-radius: 0.3rem;
+    box-shadow: 10px 8px 5px 0px var(--contrast_20);
+    background-color: white;
+}
+    #div-card:hover {
+        background-image: radial-gradient(white 95%, var(--contrast_100));
+    }
+
+
+
+/* Div card main */
+#div-card-main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Div card title */
+#div-card-title {
+    display: grid;
+    grid-template-columns: 25% 15% 60%;
+    grid-template-rows: auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+    width: 100%;
+}
+    #div-card-title label {
+        font-style: italic;
+        color: var(--contrast_100);
+    }
+
+    #div-card-title textarea {
+        overflow: auto;
+        resize: none;
+        border: none;        
+        background-color: white;
+        padding: 0.2rem;
+        background-color: rgba(179, 141, 90, 0.01);
+    }
+    
+/* Div card body */    
+#div-card-body {
+    display: grid;
+    grid-template-columns: 35% 15% 35% 15%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+    #div-card-body :nth-child(1),
+    #div-card-body :nth-child(3) {
+        color: var(--contrast_100);
+    }
+
+
+
+/* Div card button */
+#div-card-button {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+    #div-card-button button {
+        background-color: rgba(179, 141, 90, 0.01);
+        border: none;        
+    }
+        btn-disabled {
+            font-style: italic;
+        }
+        
+        .btn-enabled:hover {
+            font-weight: bold;
+        }
+
+        .btn-delete:hover {
+            color: red;
+        }
+
