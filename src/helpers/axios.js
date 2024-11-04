@@ -10,7 +10,7 @@ const axiosService = axios.create({
     baseURL: "https://company-assessments.herokuapp.com/api", // "http://localhost:8000/api", 
     
     headers: {
-        "Content-Type": "application/json",         
+        "Content-Type": "application/json",  
     },
 });
 
