@@ -39,7 +39,8 @@ const refreshAuthLogic = async (failedRequest) => {
         .post(
             "/auth/refresh/", 
             {refresh:getRefreshToken()},
-            {baseURL: "http://localhost:8000/api", headers: {Authorization: `Bearer ${getRefreshToken()}`}}
+            {baseURL: "https://company-assessments.herokuapp.com/api", headers: {Authorization: `Bearer ${getRefreshToken()}`}}
+            //{baseURL: "http://localhost:8000/api", headers: {Authorization: `Bearer ${getRefreshToken()}`}}
         )
         
         .then((resp) => {            
