@@ -15,6 +15,10 @@ const axiosService = axios.create({
     headers: {
         "Content-Type": "application/json",        
     },
+    
+    xsrfCookieName: 'csrftoken',
+    xsrfHeaderName: 'X-CSRFToken',
+    withCredentials: true
 });
 
 
