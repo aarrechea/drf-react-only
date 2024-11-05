@@ -35,7 +35,7 @@ const ViewModalProcess = (props) => {
             .then((data) => {
                 changeAdditionalColor();
 
-                inputName.current.value = data.user.first_name;
+                inputName.current.value = data.user.email;
                 lblLetter.current.value = data.letter_display;
                 txtName.current.value = data.name;
                 txtAdditioanl.current.value = data.definitions;
