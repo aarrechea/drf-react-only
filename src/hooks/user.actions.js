@@ -17,6 +17,10 @@ function useUserActions() {
         return axios
             .post(`${baseURL}/auth/login/`, data)
             .then((res) => {                
+
+                console.log("Enter login");
+                console.log("res: ", res);
+
                 setUserData(res);
                 navigate("/element")
             })            
