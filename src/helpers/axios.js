@@ -4,21 +4,22 @@ import { getAccessToken, getRefreshToken, getUser } from "../hooks/user.actions"
 import createAuthRefreshInterceptor from "axios-auth-refresh";
 
 
-axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
-axios.defaults.xsrfCookieName = "csrftoken";
+/* axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+axios.defaults.xsrfCookieName = "csrftoken"; */
 
 
 /* Content-Type header for the POST request constant */
 const axiosService = axios.create({
-    baseURL: "https://company-assessments-5bca7a5a150a.herokuapp.com/api", // "http://localhost:8000/api", 
+    baseURL: "https://company-assessments-5bca7a5a150a.herokuapp.com/api",
+    /* baseURL: "http://localhost:8000/api",  */
     
     headers: {
         "Content-Type": "application/json",        
     },
     
-    xsrfCookieName: 'csrftoken',
+    /* xsrfCookieName: 'csrftoken',
     xsrfHeaderName: 'X-CSRFToken',
-    withCredentials: true
+    withCredentials: true */
 });
 
 

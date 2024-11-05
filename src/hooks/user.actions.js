@@ -8,7 +8,8 @@ import { useNavigate } from "react-router-dom";
 function useUserActions() {
     /* Constants */
     const navigate = useNavigate();
-    const baseURL = "https://company-assessments-5bca7a5a150a.herokuapp.com/api" //"http://localhost:8000/api"; 
+    const baseURL = "https://company-assessments-5bca7a5a150a.herokuapp.com/api";
+    /* const baseURL = "http://localhost:8000/api"; */
 
 
 
