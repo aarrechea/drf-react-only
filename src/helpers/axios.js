@@ -10,7 +10,7 @@ axios.defaults.xsrfCookieName = "csrftoken";
 
 /* Content-Type header for the POST request constant */
 const axiosService = axios.create({
-    baseURL: "https://company-assessments.herokuapp.com/api", // "http://localhost:8000/api", 
+    baseURL: "https://company-assessments-5bca7a5a150a.herokuapp.com/api", // "http://localhost:8000/api", 
     
     headers: {
         "Content-Type": "application/json",        
@@ -42,7 +42,7 @@ const refreshAuthLogic = async (failedRequest) => {
         .post(
             "/auth/refresh/", 
             {refresh:getRefreshToken()},
-            {baseURL: "https://company-assessments.herokuapp.com/api", headers: {Authorization: `Bearer ${getRefreshToken()}`}}
+            {baseURL: "https://company-assessments-5bca7a5a150a.herokuapp.com/api", headers: {Authorization: `Bearer ${getRefreshToken()}`}}
             //{baseURL: "http://localhost:8000/api", headers: {Authorization: `Bearer ${getRefreshToken()}`}}
         )
         
