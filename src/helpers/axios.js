@@ -11,7 +11,7 @@ axios.defaults.xsrfCookieName = "csrftoken"; */
 /* Content-Type header for the POST request constant */
 const axiosService = axios.create({
     baseURL: "https://company-assessments-5bca7a5a150a.herokuapp.com/api",
-    /* baseURL: "http://localhost:8000/api",  */
+    //baseURL: "http://localhost:8000/api",
     
     headers: {
         "Content-Type": "application/json",        

@@ -71,7 +71,7 @@ const CreateElementPage = () => {
     function fcnPaintButtonElementType(e, class_name) {        
         document.querySelectorAll(`.${class_name}`).forEach(function(item) {
             if (item.value === e.target.value) {
-                item.style.background = "radial-gradient(white 60%, var(--green_60))";
+                item.style.background = "radial-gradient(white 70%, var(--green_60))";
 
             } else {
                 item.style.background = "white";

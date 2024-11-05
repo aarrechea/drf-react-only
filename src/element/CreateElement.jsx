@@ -27,7 +27,7 @@ const FixedBar = ({submit, children, fcnCleanFields, fcnButtonClick}) => {
 
         document.querySelectorAll('.elementType').forEach(function(item) {
             if (parseInt(item.value) === target) {
-                item.style.background = "radial-gradient(white 60%, var(--green_60))";
+                item.style.background = "radial-gradient(white 70%, var(--green_60))";
                 item.disabled = false;
                 item.classList.add('generalButtonClass');
     

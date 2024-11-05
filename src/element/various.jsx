@@ -31,10 +31,12 @@ function messageTimeout(message, color) {
     document.getElementById("div-create-message").style.margin = '8rem auto 0 auto';
     document.getElementById("lbl-create-message").innerHTML = message;
     document.getElementById("lbl-create-message").style.color = color;
-    
+        
     setTimeout(function() {
-        document.getElementById("div-create-message").style.margin = '4rem auto 0 auto';        
-    }, 3500);
+        if (document.getElementById("div-create-message")) {
+            document.getElementById("div-create-message").style.margin = '4rem auto 0 auto';        
+        }        
+    }, 3500);    
 }
 
 

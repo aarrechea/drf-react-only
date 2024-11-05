@@ -31,7 +31,7 @@
     width: 75%;
 }    
     #div-radio button:nth-child(1) {
-        background: radial-gradient(white 60%, var(--green_60));
+        background: radial-gradient(white 70%, var(--green_60));
     }
 
 .label-fixed-bar {
