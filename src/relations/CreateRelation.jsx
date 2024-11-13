@@ -87,11 +87,6 @@ const FixedBar = ({relationName, mode, setMode, id, setId}) => {
                 axiosService
                     .post("/relations/", newObject)
                     .then((res) => {
-
-                        console.log("Res: ", res);
-                        console.log("Res data: ", res.data);
-
-
                         if (res.data.error) {
                             fcnSetMessageTimeout({opacity:'1', color:'red', fontSize:'1.8rem'}, 
                                 res.data.error);

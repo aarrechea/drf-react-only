@@ -36,7 +36,7 @@ function messageTimeout(message, color) {
         if (document.getElementById("div-create-message")) {
             document.getElementById("div-create-message").style.margin = '4rem auto 0 auto';        
         }        
-    }, 2500);    
+    }, 1500);    
 }
 
 

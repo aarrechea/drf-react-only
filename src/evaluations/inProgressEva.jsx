@@ -45,7 +45,6 @@ const Assessment = (props) => {
 
     const navigate = useNavigate();
 
-
     // To hold the value of the textarea
     const [maturityValue, setMaturityValue] = useState('');
 
@@ -75,10 +74,10 @@ const Assessment = (props) => {
     const fcnCheckedRadioSelected = useCallback(index => {
         let newIndex;
         
-        // Index is the process id, so, with this id I loop over evaScores to find
-        // the score of the process, once found, I assign the value to newIndex.
-        Object.entries(evaScores).forEach(function (item) {
-            if(parseInt(item[1]['element']) === index) {
+        // Index is the process id, so, with this id, I loop over evaScores to find
+        // the score of the process, once found, I assign it the value to newIndex.
+        Object.entries(evaScores).forEach(function (item) {            
+            if(parseInt(item[1]['element_id']) === index) {                
                 newIndex = item[1]['first_score']
             }            
         });
@@ -102,9 +101,8 @@ const Assessment = (props) => {
    
     // Handle change input
     function handleChangeRadio(e) {
-        const id_eva = evaScores[relationTreePosition]['evaluation']
+        const id_eva = evaScores[relationTreePosition]['evaluation_id']
         const id_element = relationTree[relationTreePosition]['process']['element']
-        
 
         axiosService
             .put(`evaluations/${id_eva}/updateScore/`, {
@@ -382,20 +380,13 @@ export const InProgressEva = () => {
     useEffect(() => {
         // Relation tree data
         axiosService
-            .get(`relations/${state.eva.relation}/get_object_tree`)
+            //.get(`relations/${state.eva.relation}/get_object_tree`)
+            .get(`/relations_tree/get_queryset_filtered`, {params:{'id':state.eva.relation}})
             .then(res => {
                 setEvaToGo(fcnCountProcessesEvaluated(res.data.eva_scores));
 
                 const newData = fcnNewRelationTreeList(res.data.data);
-                const newDataCount = fcnCountInsideElements(newData);                
-                
-               /*  const allAssess = Object.entries(newDataCount[0].process.element_object).filter(([key, value]) => {
-                    return key.includes('assess')
-                });
-
-                const symQue = Object.entries(newDataCount[0].process.element_object).filter(([key, value]) => {
-                    return key.includes('symptoms') || key.includes('questions')
-                }) */
+                const newDataCount = fcnCountInsideElements(newData); 
                             
                 setRelationTree(() => newDataCount);
                 setEvaScores(() => res.data.eva_scores);

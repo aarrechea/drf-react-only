@@ -19,7 +19,7 @@ const RelationDeleteModal = (props) => {
 
     /* Handle click to hide modal */
     const HandleClick = () => {        
-        setShowRelationModal(() => 'none');
+        setShowRelationModal({visibility:'hidden', opacity:'0'});
         setDeleted(() => false);
     }
 
@@ -43,7 +43,7 @@ const RelationDeleteModal = (props) => {
 
     /* Return */
     return (
-        <div id="divRelationDelete" className="modal-relation-delete" style={{display:showRelationModal}}>
+        <div id="divRelationDelete" className="modal-relation-delete" style={showRelationModal}>
             <div className="modal-relation-content-delete">
                 {deleted 
                 ?
@@ -52,11 +52,14 @@ const RelationDeleteModal = (props) => {
                     <label>The following relation will be deleted: </label>
                 }
                 
+                <p className="separatorRelationDeleteModal"/>
                 
                 <div id="modal-content-title-delete">
                     <label style={{fontSize:'1.8rem'}}>{idRelationToDelete.name}</label>
                     <label style={{fontSize:'1rem'}}>Total elements {idRelationToDelete.total_elements}</label>
                 </div>
+
+                <p className="separatorRelationDeleteModal"/>
 
                 {deleted
                 ?

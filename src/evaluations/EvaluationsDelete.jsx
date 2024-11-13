@@ -20,9 +20,6 @@ const DeleteEvaluation = ({showDeleteEva, setShowDeleteEva, evaToDelete, setChec
         axiosService
             .delete(`/evaluations/${evaToDelete.id}/`)
             .then(res => {
-
-                console.log("res: ", res);
-
                 setCheckDeleted(true);
                 setShowDeleteEva('none');
             })

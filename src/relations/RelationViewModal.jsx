@@ -9,7 +9,7 @@ import { useMemo } from 'react';
 export const RelationViewModal = ({showViewModal, setShowViewModal, relationView}) => {    
     /* Handle close modal */
     function handleClickClose() {
-        setShowViewModal('none');
+        setShowViewModal({visibility:'hidden', opacity:'0'});
     }
     
 
@@ -100,13 +100,14 @@ export const RelationViewModal = ({showViewModal, setShowViewModal, relationView
 
     /* Return */
     return (        
-        <div id="divRelationView" className="modal-relation-view" style={{display:showViewModal}}>
+        <div id="divRelationView" className="modal-relation-view" style={showViewModal}>
             <div className="modal-relation-content-view">
                 <div id='modal-relation-title-view'>
                     <label htmlFor="">Relation<br/>name</label>
                     <textarea disabled value={relationView.name}></textarea>
                 </div>
 
+                <p className='separatorRelationViewModal'/>
 
                 <div id='divRelationViewTable'>
                     <table id='relationViewTable'>
@@ -137,6 +138,8 @@ export const RelationViewModal = ({showViewModal, setShowViewModal, relationView
                     </table>
                 </div>
                 
+                <p className='separatorRelationViewModal'/>
+
                 <div id='divRelationViewButton'>
                     <button onClick={handleClickClose}>Close</button>
                 </div>

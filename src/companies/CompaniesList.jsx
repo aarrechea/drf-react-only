@@ -8,12 +8,15 @@ import ViewCompany from "./ViewCompany"
 
 
 /* Companies list */
-export const CompaniesList = () => {
+export const CompaniesList = ({setMessage, message, setStyleRelationBarMessage}) => {
     /* States */
     const [companiesList, setCompaniesList] = useState([]);    
     const [showViewCompany, setShowViewCompany] = useState('none');
     const [companyObject, setCompanyObject] = useState();
 
+
+    /* Style of the div to apply transitions  */
+    const [styleViewCompany, setStyleViewCompany] = useState({visibility:'hidden', opacity:'0'});  
 
     /* List of companies */
     useEffect(() => {
@@ -34,6 +37,8 @@ export const CompaniesList = () => {
                 showViewCompany={showViewCompany}
                 setShowViewCompany={setShowViewCompany}
                 companyObject={companyObject}
+                styleViewCompany={styleViewCompany}
+                setStyleViewCompany={setStyleViewCompany}
             />
 
             <div id="companiesListTitle">
@@ -55,6 +60,13 @@ export const CompaniesList = () => {
                                 showViewCompany={showViewCompany}
                                 setShowViewCompany={setShowViewCompany}
                                 setCompanyObject={setCompanyObject}
+                                setMessage={setMessage}
+                                message={message}
+                                setStyleRelationBarMessage={setStyleRelationBarMessage}
+                                setCompaniesList={setCompaniesList}
+                                setStyleViewCompany={setStyleViewCompany}
+                                inProgress={element.eva_progress}
+                                made={element.eva_made}
                             />
                         ))
                 }

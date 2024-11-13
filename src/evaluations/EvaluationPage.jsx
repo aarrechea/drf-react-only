@@ -22,23 +22,7 @@ const Title = ({evaluationsList, checkDeleted, setCheckDeleted, getEvaluations})
     const [h3Style, setH3Style] = useState({'color':'black'});
     const [evaCount, setEvaCount] = useState("(" + Object.keys(evaluationsList).length + ")");        
 
-    // If the evaluation was deleted
-    if (checkDeleted) {
-        window.scroll(0, 0);
-        setCheckDeleted(false);
-
-        getEvaluations();        
-
-        setH3Style({'color':'green'});
-        setH3Title('The evaluation was succesfully deleted');
-
-        setTimeout(function() {            
-            setH3Style({'color':'black'});
-            setH3Title('List of evaluations');
-        }, 3000);
-    }
     
-        
     const {state} = useLocation();
 
     useEffect(() => {
@@ -55,13 +39,26 @@ const Title = ({evaluationsList, checkDeleted, setCheckDeleted, getEvaluations})
                     setH3Style({'color':'black'});
                     setH3Title("List of evaluations");                    
                 }, 3000);
-            }            
-        } 
+            }        
+        } else if (checkDeleted) {
+            window.scroll(0, 0);
+            setCheckDeleted(false);
+
+            getEvaluations();        
+
+            setH3Style({'color':'green'});
+            setH3Title('The evaluation was succesfully deleted');
+
+            setTimeout(function() {            
+                setH3Style({'color':'black'});
+                setH3Title('List of evaluations');
+            }, 3000);
+        }
 
         setTimeout(() => {
             setEvaCount("(" + Object.keys(evaluationsList).length + ")");    
         }, 3050);                          
-    }, [state, evaluationsList])
+    }, [state, evaluationsList, setCheckDeleted, getEvaluations, checkDeleted])
 
 
                 

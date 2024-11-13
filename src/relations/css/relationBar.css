@@ -13,7 +13,7 @@
 /* Relation bar */
 #divRelationBar {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 25% 50% 25%;
     justify-content: center;
     align-items: center;
     text-align: center;

@@ -2,7 +2,7 @@
 function getNames() {
     let data = {};
     let titles = ['name', 'city', 'postal_code', 'address', 'country', 'continent', 'region', 
-        'industry', 'supersector', 'sector', 'subsector', 'year_establishment', 'year_first_exports', 'year_export', 
+        'industry', 'supersector', 'sector', 'subsector', 'year_establishment', 'year_first_exports', 'year_first_expo', 
         'business_description']
     let counter = 0;
 
@@ -32,10 +32,11 @@ function companyMessageTimeout(message) {
     document.getElementById("labelCreateEdit").style.color = 'green';
     document.getElementById("labelCreateEdit").style.fontSize = '2rem';
     
-    setTimeout(function() {                
-        document.getElementById("labelCreateEdit").style.fontSize = '0rem';
-        //document.getElementById("labelCreateEdit").innerHTML = '';
-    }, 4000);
+    setTimeout(function() {
+        if (document.getElementById("labelCreateEdit")) {
+            document.getElementById("labelCreateEdit").style.fontSize = '0rem';
+        }
+    }, 3000);
 }
 
 

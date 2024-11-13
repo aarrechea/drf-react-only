@@ -33,7 +33,7 @@ function ElementCard(props) {
 
     /* Handle show modal */
     const HandleShowModal = () => {
-        setShowModal('block');
+        setShowModal({visibility:'visible', opacity:'1'});
         setElementToDelete(() => {
             return {
                 element_type:element_type,
@@ -49,7 +49,7 @@ function ElementCard(props) {
     const HandleViewModal = () => {
         setShowViewModal(() => {
             return {
-                display:'grid',
+                style:{visibility:'visible', opacity:'1'},
                 public_id:id                
             }
         });

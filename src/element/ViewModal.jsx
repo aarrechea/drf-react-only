@@ -28,7 +28,7 @@ const ViewModalProcess = (props) => {
 
     
      /* If the process wants to be viewed */
-     if (showViewModal.display === 'grid') {
+     if (showViewModal.public_id !== '') {
         axiosService
             .get(`/element/${showViewModal.public_id}`)
             .then(res => res.data)
@@ -52,7 +52,12 @@ const ViewModalProcess = (props) => {
 
     /* Handle close */
     const HandleClose = () => {
-        setShowViewModal(() => 'none');
+        setShowViewModal(() => {
+            return {
+                style:{visibility:'hidden', opacity:'0'},
+                public_id:''
+            }
+        });
     }
 
 
@@ -92,20 +97,28 @@ const ViewModalProcess = (props) => {
 
     /* Return */
     return(
-        <div id="divViewModalProcess" style={{display:showViewModal.display}}>
+        <div id="divViewModalProcess" style={showViewModal.style}>
             <div id="divViewModalProcessMain">
                 <div id="divUserCreatorName">
                     <label>User creator</label>
-                    <label>Letter</label>
+                    <label style={{textAlign:'center'}}>Letter</label>
                     <label>Name</label>
 
                     <textarea ref={inputName} disabled/>
-                    <textarea ref={lblLetter} disabled/>
+                    <textarea style={{textAlign:'center'}} ref={lblLetter} disabled/>
                     <textarea ref={txtName} disabled/>
                 </div>
 
+                <div>
+                    <p className="separatorElementViewModal"/>
+                </div>
+                
                 <div id="divAdditionalTextareaViewModal">
                     <textarea disabled ref={txtAdditioanl} />
+                </div>
+
+                <div>
+                    <p className="separatorElementViewModal"/>
                 </div>
 
                 <div id="divAdditionalViewModal">
@@ -113,7 +126,10 @@ const ViewModalProcess = (props) => {
                         className="btnAdditional" 
                         id="btnDefViewModal" 
                         onClick={HandleClick} 
-                        ref={btnDefinitions}>Definitions</button>
+                        ref={btnDefinitions}
+                    >
+                        Definitions
+                    </button>
 
                     <button className="btnAdditional" id="btnSymViewModal" onClick={HandleClick}>Symptoms</button>
                     <button className="btnAdditional" id="btnQueViewModal" onClick={HandleClick}>Questions</button>

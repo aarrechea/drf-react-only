@@ -25,10 +25,9 @@ function fcnNewRelationTreeList(data) {
     let newRow = {}; // new row with the competence, capability and the process added
     let row = 0; // to follow the actual data position
 
-
-    data.forEach(function(item) {
+    data.forEach(function(item) {        
         elementType = parseInt(item.element_type);     
-        newRow = {};
+        newRow = {};        
 
         if (elementType === 1) {
             competenceRow = row; // just saving the row where the competence is.
@@ -57,7 +56,7 @@ function fcnNewRelationTreeList(data) {
         
         row += 1;
     });
-
+    
     return newData;
 }
 

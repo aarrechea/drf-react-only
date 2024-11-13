@@ -1,4 +1,5 @@
 /* Imports */
+import { useState } from "react";
 import axiosService from "../helpers/axios"
 import "./css/companiesCard.css"
 import { useNavigate } from "react-router-dom"
@@ -6,13 +7,20 @@ import { useNavigate } from "react-router-dom"
 
 
 /* Company card */
-export const CompanyCard = ({name, country, id, setShowViewCompany, setCompanyObject}) => {      
+export const CompanyCard = (props) => {
+
+    const {name, country, id, setCompanyObject, setMessage, message, made, in_progress,
+        setStyleRelationBarMessage, setCompaniesList, setStyleViewCompany} = props;
+
     const navigate = useNavigate();
+
+    const [styleDelete, setStyleDelete] = useState();
     
 
     /* Handle the view modal */
     function handleClickView() {
-        setShowViewCompany('block')
+        //setShowViewCompany('block')
+        setStyleViewCompany({visibility:'visible', opacity:'1'});
         
         axiosService
             .get(`/company/${id}`)
@@ -27,6 +35,41 @@ export const CompanyCard = ({name, country, id, setShowViewCompany, setCompanyOb
     function handleClickEdit() {         
         navigate("/create-company", {state:{mode:'Edit', id:id}});
     }
+
+
+    function handleDelete() {
+        if (Object.keys(message).length === 0) {
+            setStyleDelete({backgroundColor:'red', color:'white'})
+            setStyleRelationBarMessage({color:'red'})
+            setMessage("Press delete again to delete the company")
+            
+
+            setTimeout(() => {
+                setStyleDelete({backgroundColor:'white', color:'black'})
+                setMessage("")
+            }, 4000);
+
+        } else {
+            axiosService
+                .delete(`/company/${id}`)
+                .then(res => res.data)
+                .then((data) => {
+                    setStyleRelationBarMessage({color:'green'})
+                    setMessage("The company has been deleted")
+                    setStyleDelete({backgroundColor:'white', color:'black'})
+                    
+                    // Remove only the company that was deleted from the companies list.
+                    setCompaniesList(prev => {
+                        const newArray = prev.filter((item) => item.id !== id);
+                        return newArray
+                    })
+
+                    setTimeout(() => {
+                        setMessage("")
+                    }, 2500);
+                })
+        }
+    };
 
 
 
@@ -44,8 +87,24 @@ export const CompanyCard = ({name, country, id, setShowViewCompany, setCompanyOb
 
                 <div id="divCompanyCardButtons">
                     <button onClick={handleClickView}>View</button>
-                    <button onClick={handleClickEdit}>Edit</button>
-                    <button>Delete</button>
+
+                    {made > 0 || in_progress > 0 
+                        ?
+                            <>
+                                <button disabled style={{fontStyle:'italic'}}>Edit</button>
+                                <button disabled style={{fontStyle:'italic'}}>Delete</button>
+                            </>                            
+                        :
+                            <>
+                                <button onClick={handleClickEdit}>Edit</button>
+                                <button 
+                                    onClick={handleDelete}
+                                    style={styleDelete}
+                                >
+                                    Delete
+                                </button>                    
+                            </>                            
+                    }                    
                 </div>                
             </div>
         </div>

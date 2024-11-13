@@ -118,28 +118,28 @@ const CreateRelationPage = () => {
         const public_id_array = [];
 
         data.forEach(function(item)  {
-            public_id_array.push(item.public_id);
+            public_id_array.push(item.element);
         })        
 
         return public_id_array;
     }, [])
 
     
-    // If edit I have to hide in the first table, the elements already used in the new table.
+    // If edit, I have to hide in the first table the elements already used in the new table.
     useEffect(() => {        
         if (location.state.mode === 'edit') {
             axiosService            
-                .get(`/relations/${location.state.id}/get_object_tree/`)
-                .then(res => res.data)
-                .then((data) => {
-                    const id_array = fcnSetHideRows(data.data);
-                    setHideRows([...id_array]);
+                //.get(`/relations/${location.state.id}/get_object_tree/`)
+                .get(`/relations_tree/get_queryset_filtered`, {params:{'id':location.state.id}})                
+                .then((res) => {
+                    const id_array = fcnSetHideRows(res.data.data);
 
-                    setNewTableForEdit(data.data);
+                    setHideRows([...id_array]);
+                    setNewTableForEdit(res.data.data);
                     setMode('Edit');
                     setId(location.state.id)
 
-                    setRelationName(data.relation_name);
+                    setRelationName(res.data.relation_name);
                 })
                 .catch((error) => {
                     console.log("Error: " + error);

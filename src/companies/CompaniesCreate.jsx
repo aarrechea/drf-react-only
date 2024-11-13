@@ -42,8 +42,8 @@ export const CompanyCreate = () => {
     
     /* Other data */
     const establishmentRef = useRef();    
-    const withoutExport = useRef();
-    const businessDescriptionRef = useRef();    
+    const withoutExport = useRef();    
+    const [bussinesDescription, setBussinesDescription] = useState();
     const [disabledState, setDisabledState] = useState('disabled');
     const [checkedState, setCheckedState] = useState(true);
     const [yearFirstExport, setYearFirstExport] = useState();
@@ -63,7 +63,7 @@ export const CompanyCreate = () => {
     useEffect(() => {
         if (location.state.mode.mode === 'create') {
             modeRef.current = 'Create';
-            titleRef.current = 'New company data'
+            titleRef.current = 'New company data'            
     
         } else {
             modeRef.current = location.state.mode;
@@ -84,7 +84,8 @@ export const CompanyCreate = () => {
     
                     /* Other data */
                     establishmentRef.current = data.year_establishment;
-                    businessDescriptionRef.current = data.business_description;
+                    //businessDescriptionRef.current = data.business_description;
+                    setBussinesDescription(data.business_description);
                     
                     const data_dict = {
                         'mode':'edit',                    
@@ -98,26 +99,25 @@ export const CompanyCreate = () => {
                         'export':data.year_first_expo                    
                     }
     
-                    companyData.current = data_dict;
-    
+                    companyData.current = data_dict;    
                     setCompanyDataState(data_dict);
+
+                    console.log("data dict: ", data_dict);
+
+                    if (data_dict.export === 0) {
+                        setCheckedState(true);
+                        setDisabledState('disabled');            
+                    } else {
+                        setCheckedState(false);
+                        setDisabledState('false');
+                        setYearFirstExport(data_dict.export);
+                    }            
+
                 })
         }        
     }, [location.state.id, location.state.mode]);
-
-    
-    useEffect(() => {                
-        if (companyDataState.export === 0) {
-            setCheckedState(true);
-            setDisabledState('disabled');            
-        } else {
-            setCheckedState(false);
-            setDisabledState('false');
-            setYearFirstExport(companyDataState.export);            
-        }
-    }, [companyDataState]);
+        
                 
-
     /* Modified the data of the company in order to match the data the API needs to validate it */
     function modifiedData(data, user) {
         data['user_creator'] = user.id;
@@ -148,7 +148,7 @@ export const CompanyCreate = () => {
     }
 
 
-    /* Handle click to handle click in the imported component CreateEditBar */
+    /* Handle click to handle click in the component CreateEditBar to edit or create a company */
     function handleClick() {        
         const data = getNames();
         const user = getUser();
@@ -182,6 +182,13 @@ export const CompanyCreate = () => {
 
                     const lstSubsector = fcnGenerateData('subsector', 'sector', position, lstSector);
                     setSubSector(lstSubsector);   
+
+                    // Reset other fields
+                    setCheckedState(true);
+                    setBussinesDescription("")
+                    setDisabledState('disabled')
+                    
+                    window.scrollTo(0, 0);
                 })
                 .catch((error) => {
                     console.log("Error: " + error);
@@ -189,13 +196,14 @@ export const CompanyCreate = () => {
                 });
 
         // if it is edit
-        } else {
+        } else {            
             axiosService
-                .put(`/company/${location.state}/`, data)
+                .put(`/company/${location.state.id}/`, data)
                 .then(res => res.data)
                 .then((data) => {
-                    //GetObject();
-                })
+                    companyMessageTimeout('Company succesfully edited');
+                    window.scrollTo(0, 0)
+                })                    
                 .catch((error) => {
                     console.log("Error: " + error);
                     navigate("/")
@@ -398,7 +406,7 @@ export const CompanyCreate = () => {
             setDisabledState('disabled');
             setYearFirstExport('');
         }       
-    }
+    }    
 
 
 
@@ -586,8 +594,9 @@ export const CompanyCreate = () => {
                     <textarea 
                         className="name" 
                         maxLength={250} 
-                        placeholder="Business description"
-                        ref={businessDescriptionRef}
+                        placeholder="Business description"                        
+                        value={bussinesDescription}
+                        onInput={(e) => setBussinesDescription(e.target.value)}
                     ></textarea>
                 </div>                
             </div>

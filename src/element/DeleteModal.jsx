@@ -16,7 +16,7 @@ const DeleteModal = ({showModal, setShowModal, elementToDelete, setElementDelete
 
     /* Handle click to hide modal */
     const HandleClick = () => {        
-        setShowModal(() => 'none');
+        setShowModal({visibility:'hidden', opacity:'0'});
         setDeleted(() => false);
     }
 
@@ -46,7 +46,7 @@ const DeleteModal = ({showModal, setShowModal, elementToDelete, setElementDelete
 
     /* Return */
     return (
-        <div id="myModalDelete" className="modal-element-delete" style={{display:showModal}}>
+        <div id="myModalDelete" className="modal-element-delete" style={showModal}>
             <div className="modal-content-delete">
                 {deleted 
                 ?
@@ -55,12 +55,15 @@ const DeleteModal = ({showModal, setShowModal, elementToDelete, setElementDelete
                     <label>The following element will be deleted: </label>
                 }
                 
-                
+                <p className="separatorElementDeleteModal"/>
+
                 <div id="modal-content-title-delete">
                     <label>
                         {elementToDelete.element_type} - {elementToDelete.letter} - {elementToDelete.name}
                     </label>
                 </div>
+
+                <p className="separatorElementDeleteModal"/>
 
                 {deleted
                 ?

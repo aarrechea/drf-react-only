@@ -5,10 +5,10 @@ import moment from 'moment';
 
 
 /* View components */
-const ViewCompany = ({showViewCompany, setShowViewCompany, companyObject}) => {
+const ViewCompany = ({showViewCompany, setShowViewCompany, companyObject, styleViewCompany, setStyleViewCompany}) => {
     let year_fist_expo = companyObject?.year_first_expo;
-    
 
+    
     if (companyObject?.year_first_expo === 0) {
         year_fist_expo = 'No exports yet';
     }    
@@ -20,7 +20,8 @@ const ViewCompany = ({showViewCompany, setShowViewCompany, companyObject}) => {
 
     /* Return */
     return (        
-        <div id="divCompanyView" style={{display:showViewCompany}}>
+        //<div id="divCompanyView" style={{display:showViewCompany}}>
+        <div id="divCompanyView" style={styleViewCompany}>
             <div id="divCompanyViewMain">
                 <div id="divCompanyViewName">
                     <label>Company<br/>name</label>
@@ -86,7 +87,7 @@ const ViewCompany = ({showViewCompany, setShowViewCompany, companyObject}) => {
                 </div>
                                 
                 <div id="divCompanyViewButton">
-                    <button onClick={() => setShowViewCompany('none')}>Close</button>
+                    <button onClick={() => setStyleViewCompany({visibility:'hidden', opacity:'0'})}>Close</button>
                 </div>                
             </div>
         </div>        

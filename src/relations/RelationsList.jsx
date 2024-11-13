@@ -14,8 +14,8 @@ function RelationList() {
     /* States */    
     const [relationList, setRelationList] = useState([]);
     const [relationsNumber, setRelationsNumber] = useState();    
-    const [showRelationModal, setShowRelationModal] = useState(false);
-    const [showViewModal, setShowViewModal] = useState('none');
+    const [showRelationModal, setShowRelationModal] = useState({visibility:'hidden', opacity:'0'});
+    const [showViewModal, setShowViewModal] = useState({visibility:'hidden', opacity:'0'});
     const [relationView, setRelationView] = useState({
         'name':'',
         'relation':[]
@@ -107,7 +107,7 @@ function RelationList() {
                                             setShowRelationModal={setShowRelationModal}
                                             setIdRelationToDelete={setIdRelationToDelete}
                                             setShowViewModal={setShowViewModal}
-                                            fcnSetRelationView={fcnSetRelationView}
+                                            fcnSetRelationView={fcnSetRelationView}                                            
                                         />
                                     </React.Fragment>                                
                                 )

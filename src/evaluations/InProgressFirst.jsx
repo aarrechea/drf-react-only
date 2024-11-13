@@ -34,7 +34,7 @@ const InProgressFirst = () => {
         axiosService
             .get(`/data-model/${location.state.relation.id}`)
             .then(res => res.data)
-            .then((data) => {                
+            .then((data) => {                            
                 setDataModel(data);
             })
     }, [location.state.relation.id]);
@@ -94,10 +94,12 @@ const InProgressFirst = () => {
     const InputRadio = ({title, name, labelClass, dataname}) => {                
         /* In each click on the label or on the input, will write the option selected 
         (second could be true or false) in dataModel on its respective field (dataname) */
-        function handleClick(second) {            
+        function handleClick(second) {
             setDataModel(prev => {return {...prev, [dataname]:second}});
             setSaveDisabled(false);
         }
+
+
 
         
         /* Return */
@@ -161,7 +163,7 @@ const InProgressFirst = () => {
         // Adding the rest of the information to the dict to be send to the API
         dict['years_exporting'] = dataModel.years_exporting;
         dict['export_variation'] = dataModel.export_variation;
-        dict['foreign_insvestment'] = dataModel.foreign_investment;
+        dict['foreign_investment'] = dataModel.foreign_investment;
         dict['plans_to_export'] = dataModel.plans_to_export;
         dict['average_years'] = dataModel.average_years;
         dict['top_or_middle'] = dataModel.top_or_middle;

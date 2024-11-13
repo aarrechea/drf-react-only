@@ -95,7 +95,7 @@ const FirstTable = (props) => {
                 .get(`/element`)                
                 .then((res) => {
                     const filteredData = res.data.filter(item => {                                
-                        return !hideRows.includes(item['public_id'])}
+                        return !hideRows.includes(item['id'])}
                     )                    
                     
                     setData(filteredData);

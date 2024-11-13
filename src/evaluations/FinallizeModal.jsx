@@ -15,12 +15,16 @@ export const FinalizeModal = ({showFinalizeModal, setShowFinalizeModal, idEva}) 
 
     // Finalize the evaluation
     function handleFinalize() {
+
+        console.log("id eva: ", idEva);
+
         axiosService
             .post(`evaluations/${idEva}/finalizeEvaluation/`)
             .then(res => {
                 console.log("res: ", res);
-                setShowFinalizeModal({visibility:'hidden', opacity:'0'});
-                                
+
+
+                setShowFinalizeModal({visibility:'hidden', opacity:'0'});                                
                 navigate("/evaluations-page", {state:{'status':'finalized'}});
             })
             .catch(error => {

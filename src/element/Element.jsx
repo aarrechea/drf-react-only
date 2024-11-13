@@ -19,9 +19,9 @@ function ElementPage() {
     /* States */        
     const [elements, setElements] = useState([]);
     const [count, setCount] = useState();
-    const [showModal, setShowModal] = useState('none');
+    const [showModal, setShowModal] = useState({visibility:'hidden', opacity:'0'});
     const [showViewModal, setShowViewModal] = useState({
-        display:'none',
+        style:{visibility:'hidden', opacity:'0'},
         public_id:''
     });
     const [elementToDelete, setElementToDelete] = useState({

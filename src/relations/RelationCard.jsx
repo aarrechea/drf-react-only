@@ -19,7 +19,7 @@ export const RelationCard = (props) => {
 
     /* Handle delete click */
     function handleDeleteClick() {
-        setShowRelationModal('block')
+        setShowRelationModal({visibility:'visible', opacity:'1'})
         setIdRelationToDelete({
             id:id,
             name:name,
@@ -35,16 +35,16 @@ export const RelationCard = (props) => {
 
 
     /* Handle view click */
-    function handleViewClick() {
-        setShowViewModal('block');
-
+    function handleViewClick() {        
         const idRel = id;
 
         axiosService            
-            .get(`/relations/${idRel}/get_object_tree/`)
+            //.get(`/relations/${idRel}/get_object_tree/`)
+            .get(`/relations_tree/get_queryset_filtered`, {params:{'id':idRel}})
             .then(res => res.data)
-            .then((data) => {                                        
+            .then((data) => {                                  
                 fcnSetRelationView(data);
+                setShowViewModal({visibility:'visible', opacity:'1'});
             })
             .catch((error) => {
                 console.log("Error: " + error);
@@ -78,14 +78,19 @@ export const RelationCard = (props) => {
 
                 <div id="divRelationCardMainButtons">
                     <button onClick={handleViewClick}>View</button>
-                    <button onClick={handleEditClick}>Edit</button>
+                    
                     {in_progress > 0 || made > 0 
                         ?
-                            <button disabled>Delete</button>
+                            <>
+                                <button disabled>Edit</button>
+                                <button disabled>Delete</button>
+                            </>                            
                         :
-                            <button onClick={handleDeleteClick}>Delete</button>
-                    }
-                    
+                            <>
+                                <button onClick={handleEditClick}>Edit</button>
+                                <button onClick={handleDeleteClick}>Delete</button>
+                            </>                            
+                    }                    
                 </div>
             </div>
 
