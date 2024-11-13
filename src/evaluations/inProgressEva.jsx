@@ -366,7 +366,7 @@ export const InProgressEva = () => {
     function fcnCountProcessesEvaluated(data) {
         let counter = 0;
 
-        Object.entries(data).forEach(function(item) {            
+        Object.entries(data).forEach(function(item) {
             if(parseInt(item[1].element_type) === 3 && parseInt(item[1].first_score) === 0) {
                 counter += 1;
             }            

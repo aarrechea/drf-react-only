@@ -54,9 +54,9 @@ export const InProgressEvaBar = (props) => {
     // Use effect
     useEffect(() => {
         if(evaToGo === 1) {
-            setChildrenFinalize(evaToGo + " process left")
+            setChildrenFinalize(<p>{evaToGo} process<br/>left</p>)
         } else if(evaToGo > 1) {
-            setChildrenFinalize(evaToGo + " processes left")
+            setChildrenFinalize(<p>{evaToGo} processes<br/>left</p>)
         } else {
             setChildrenFinalize("Finalize")
         }
