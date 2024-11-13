@@ -92,7 +92,7 @@ function ButtonsBar({click}) {
                         className='btnMainMenu'
                     />
                                             
-                    {parseInt(user.user_type) < 3 
+                    {parseInt(user.user_type) < 4 
                         ?   
                             <>
                                 <ButtonCss
@@ -116,7 +116,7 @@ function ButtonsBar({click}) {
                         : null
                     }
 
-                    {parseInt(user.user_type) === 1
+                    {parseInt(user.user_type) < 5
                         ?
                             <>
                                 <ButtonCss                                    
