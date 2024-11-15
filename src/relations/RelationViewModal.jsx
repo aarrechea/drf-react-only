@@ -109,29 +109,37 @@ export const RelationViewModal = ({showViewModal, setShowViewModal, relationView
 
                 <p className='separatorRelationViewModal'/>
 
+                                
                 <div id='divRelationViewTable'>
                     <table id='relationViewTable'>
                         <thead style={{width:'100%'}} id="newTableHeader">
-                            {headerGroups.map(headerGroup => (
-                                <tr {...headerGroup.getHeaderGroupProps()}>
-                                    {headerGroup.headers.map(column => (
-                                        <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                                    ))}
-                                </tr>
-                            ))}
-                        </thead>                    
-
+                            {headerGroups.map(headerGroup => {
+                                const { key, ...restHeaderGroupProps } = headerGroup.getHeaderGroupProps();
+                                return (
+                                    <tr key={key} {...restHeaderGroupProps}>
+                                        {headerGroup.headers.map(column => (
+                                            <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                                        ))}
+                                    </tr>
+                                )                                
+                            })}
+                        </thead>          
+                        
                         <tbody id="newTableBody">
                             {rows.map(row => {
                                 prepareRow(row);
+                                const { key, ...restRowProps } = row.getRowProps();
                                 return (
-                                    <tr {...row.getRowProps()}>
-                                        {row.cells.map(cell => (                                        
-                                            <td {...cell.getCellProps()}>
-                                                {cell.render('Cell')}                                            
-                                            </td>
-                                        ))}
-                                    </tr>
+                                    <tr key={key} {...restRowProps}>
+                                        {row.cells.map(cell => {
+                                            const { key, ...restCellProps } = cell.getCellProps();
+                                            return (
+                                                <td key={key} {...restCellProps}>
+                                                    {cell.render('Cell')}                                            
+                                                </td>
+                                            );                                            
+                                        })}
+                                    </tr>                                    
                                 );
                             })}
                         </tbody>

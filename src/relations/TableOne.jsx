@@ -2,7 +2,6 @@
 import React from "react";
 import { useContext, useState, useEffect, useMemo, useCallback } from "react";
 import {DataContext} from "./store/DataContext";
-import returnData from "../data";
 import axiosService from "../helpers/axios";
 import {useTable} from "react-table";
 import { fcnChangePercentage, fcnElementCount, fcnPercentage } from "./js/various";
@@ -150,27 +149,37 @@ const FirstTable = (props) => {
     return (
         <>
             <div id="divTableElements">
-                <table {...getTableProps()}>
+                <table {...getTableProps()}>                    
                     <thead id="tableElementsHeader">
-                        {headerGroups.map(headerGroup => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map(column => (
-                                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                                ))}
-                            </tr>
-                        ))}
+                        {headerGroups.map(headerGroup => {
+                            const { key, ...restHeaderGroupProps } = headerGroup.getHeaderGroupProps();
+                            return (
+                                <tr key={key} {...restHeaderGroupProps}>
+                                    {headerGroup.headers.map(column => (
+                                        <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                                    ))}
+                                </tr>
+                            )                            
+                        })}
                     </thead>
+
 
                     <tbody id="tableElementsBody" {...getTableBodyProps()}>
                         {rows.map(row => {
                             prepareRow(row);
+                            const { key, ...restRowProps } = row.getRowProps();
                             return (
-                                <tr style={{display: hideRows.includes(row.original.id) ? "none" : "table-row"}}
+                                <tr key={key} style={{display: hideRows.includes(row.original.id) ? "none" : "table-row"}}
                                     onClick={() => HandleRowClicked(row)} 
-                                    {...row.getRowProps()}>
-                                        {row.cells.map(cell => (                                        
-                                            <td {...cell.getCellProps()}>{cell.render('Cell')}</td>                                        
-                                        ))}
+                                    {...restRowProps}>
+                                        {row.cells.map(cell => {  
+                                            const { key, ...restCellProps } = cell.getCellProps();
+                                            return (
+                                                <td key={key} {...restCellProps}>
+                                                    {cell.render('Cell')}
+                                                </td>
+                                            )                                                                                        
+                                        })}
                                 </tr>
                             );
                         })}

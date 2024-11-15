@@ -114,47 +114,54 @@ const NewTable = (props) => {
             </div>
 
             <div id="divNewTable">
-                <table>
+                <table>                    
                     <thead id="newTableHeader">
-                        {headerGroups.map(headerGroup => (
-                            <tr {...headerGroup.getHeaderGroupProps()}>
-                                {headerGroup.headers.map(column => (
-                                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                                ))}
-                            </tr>
-                        ))}
-                    </thead>                    
+                        {headerGroups.map(headerGroup => {
+                            const { key, ...restHeaderGroupProps } = headerGroup.getHeaderGroupProps();
+                            return (
+                                <tr key={key} {...restHeaderGroupProps}>
+                                    {headerGroup.headers.map(column => (
+                                        <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                                    ))}
+                                </tr>
+                            )                            
+                        })}
+                    </thead>
 
                     <tbody id="newTableBody">
                         {rows.map(row => {
                             prepareRow(row);
+                            const { key, ...restRowProps } = row.getRowProps();
                             return (
-                                <tr
-                                    {...row.getRowProps()}>
-                                    {row.cells.map(cell => (                                        
-                                        <td {...cell.getCellProps()}                                        
-                                            style={parseInt(cell.row.original.element_type) === 1 && 
-                                                cell.column.id === 'name' ? {paddingLeft:'0.2rem'} : 
+                                <tr key={key}
+                                    {...restRowProps}>
+                                    {row.cells.map(cell => {
+                                        const { key, ...restCellProps } = cell.getCellProps();
+                                        return (
+                                            <td key={key} {...restCellProps}                                        
+                                                style={parseInt(cell.row.original.element_type) === 1 && 
+                                                    cell.column.id === 'name' ? {paddingLeft:'0.2rem'} : 
 
-                                                parseInt(cell.row.original.element_type) === 2 &&
-                                                cell.column.id === 'name' ? {paddingLeft:'1rem'} :
- 
-                                                parseInt(cell.row.original.element_type) === 3 && 
-                                                cell.column.id === 'name' ? {paddingLeft:'1.8rem'} : 
+                                                    parseInt(cell.row.original.element_type) === 2 &&
+                                                    cell.column.id === 'name' ? {paddingLeft:'1rem'} :
+    
+                                                    parseInt(cell.row.original.element_type) === 3 && 
+                                                    cell.column.id === 'name' ? {paddingLeft:'1.8rem'} : 
 
-                                                parseInt(cell.row.original.element_type) === 1 && 
-                                                cell.column.id === 'percentage' ? {paddingLeft:'0.2rem'} :
+                                                    parseInt(cell.row.original.element_type) === 1 && 
+                                                    cell.column.id === 'percentage' ? {paddingLeft:'0.2rem'} :
 
-                                                parseInt(cell.row.original.element_type) === 2 && 
-                                                cell.column.id === 'percentage' ? {paddingLeft:'0.8rem'} :
+                                                    parseInt(cell.row.original.element_type) === 2 && 
+                                                    cell.column.id === 'percentage' ? {paddingLeft:'0.8rem'} :
 
-                                                parseInt(cell.row.original.element_type) === 3 && 
-                                                cell.column.id === 'percentage' ? {paddingLeft:'1.4rem'} : null
-                                            }
-                                        >                                             
-                                            {cell.render('Cell')}                                            
-                                        </td>
-                                    ))}
+                                                    parseInt(cell.row.original.element_type) === 3 && 
+                                                    cell.column.id === 'percentage' ? {paddingLeft:'1.4rem'} : null
+                                                }
+                                            >                                             
+                                                {cell.render('Cell')}                                            
+                                            </td>
+                                        )
+                                    })}
                                 </tr>
                             );
                         })}
