@@ -50,7 +50,7 @@ function ElementCard(props) {
         setShowViewModal(() => {
             return {
                 style:{visibility:'visible', opacity:'1'},
-                public_id:id                
+                id:id
             }
         });
     };

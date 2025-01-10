@@ -28,7 +28,6 @@ export const EvaluationList = ({data, setShowDeleteEva, setEvaToDelete, setShowE
     }
 
 
-
     /* Company card */
     const EvaluationCard = () => {
         return (

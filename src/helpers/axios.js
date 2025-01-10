@@ -9,9 +9,8 @@ axios.defaults.xsrfCookieName = "csrftoken"; */
 
 
 /* Content-Type header for the POST request constant */
-const axiosService = axios.create({
-    baseURL: "https://company-assessments-85bd491e25c3.herokuapp.com/api",
-    //baseURL: "http://localhost:8000/api",
+const axiosService = axios.create({              
+    baseURL: process.env.REACT_APP_API_URL,
     
     headers: {
         "Content-Type": "application/json",        
@@ -39,12 +38,14 @@ axiosService.interceptors.response.use(
 /* Function that contains the refresh auth logic. This function will be called
     whenever the failed request returns a 401 error */
 const refreshAuthLogic = async (failedRequest) => {    
+    // Base url
+    const BASE_URL = process.env.REACT_APP_API_URL;
+
     return axios
         .post(
             "/auth/refresh/", 
             {refresh:getRefreshToken()},
-            {baseURL: "https://company-assessments-85bd491e25c3.herokuapp.com/api", headers: {Authorization: `Bearer ${getRefreshToken()}`}}
-            //{baseURL: "http://localhost:8000/api", headers: {Authorization: `Bearer ${getRefreshToken()}`}}
+            {baseURL: BASE_URL, headers: {Authorization: `Bearer ${getRefreshToken()}`}}            
         )
         
         .then((resp) => {            

@@ -22,7 +22,7 @@ function ElementPage() {
     const [showModal, setShowModal] = useState({visibility:'hidden', opacity:'0'});
     const [showViewModal, setShowViewModal] = useState({
         style:{visibility:'hidden', opacity:'0'},
-        public_id:''
+        id:''
     });
     const [elementToDelete, setElementToDelete] = useState({
         element_type:'',

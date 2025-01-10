@@ -59,7 +59,7 @@ const ViewEvaluation = ({showEvaView, setShowEvaView, evaToShow}) => {
     return (
         Object.keys(evaToShow).length 
             ?
-                <div style={showEvaView} id="divEvaView">            
+                <div key={evaToShow.id} style={showEvaView} id="divEvaView">
                     <div id="divEvaViewMain">
                         {/* General title */}
                         <div id="divEvaViewMainTitle">

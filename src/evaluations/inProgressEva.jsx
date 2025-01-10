@@ -55,10 +55,12 @@ const Assessment = (props) => {
     // Button style
     const style = {width:'4rem', height:'3rem', border:'1px solid var(--brown_100)'};
 
-    // To mark the correspondant button
-    function fcnShowMaturityScale(score) {
+
+    // To mark the correspondant button, and change the maturity scale textarea.
+    const fcnShowMaturityScale = useCallback((score) => {
         // To show the first maturity scale assessment if the process is not evaluated yet.
         if (parseInt(score) === 0) score = 1;
+        const assess_array = ['assess_one', 'assess_two','assess_three','assess_four','assess_five']
 
         document.querySelectorAll('.assessmentButton').forEach(function(item) {
             if(parseInt(item.innerText) === parseInt(score)) {
@@ -67,8 +69,12 @@ const Assessment = (props) => {
             } else {
                 item.style.backgroundColor = 'white';
             }
-        });
-    };
+        });        
+
+        // To change the maturity scale textarea each time the score is changed.
+        setMaturityValue(relationTree[relationTreePosition]['process']['element_object'][assess_array[score-1]]);
+
+    }, [relationTree, relationTreePosition]);
     
     
     const fcnCheckedRadioSelected = useCallback(index => {
@@ -76,8 +82,8 @@ const Assessment = (props) => {
         
         // Index is the process id, so, with this id, I loop over evaScores to find
         // the score of the process, once found, I assign it the value to newIndex.
-        Object.entries(evaScores).forEach(function (item) {            
-            if(parseInt(item[1]['element_id']) === index) {                
+        Object.entries(evaScores).forEach(function (item) {
+            if(parseInt(item[1]['element']) === index) {
                 newIndex = item[1]['first_score']
             }            
         });
@@ -101,7 +107,8 @@ const Assessment = (props) => {
    
     // Handle change input
     function handleChangeRadio(e) {
-        const id_eva = evaScores[relationTreePosition]['evaluation_id']
+        //const id_eva = evaScores[relationTreePosition]['evaluation_id']
+        const id_eva = evaScores[relationTreePosition]['evaluation']
         const id_element = relationTree[relationTreePosition]['process']['element']
 
         axiosService
@@ -135,7 +142,7 @@ const Assessment = (props) => {
             fcnShowMaturityScale(evaScores[0]['first_score']);
             fcnCheckedRadioSelected(relationTree[relationTreePosition]['process']['element']);            
         }        
-    }, [evaScores, relationTree, relationTreePosition, fcnCheckedRadioSelected]);
+    }, [evaScores, relationTree, relationTreePosition, fcnCheckedRadioSelected, fcnShowMaturityScale]);
     
 
 
@@ -285,6 +292,8 @@ const Symptoms = ({relationTree, relationTreePosition}) => {
     const [symptomsStyle, setSymptomsStyle] = useState({backgroundColor:'rgba(220,220,220, 0.5)'});
     const [questionsStyle, setQuestionsStyle] = useState({backgroundColor:"white"});
 
+
+    // Use effect
     useEffect(() => {
         if(Object.keys(relationTree).length > 0) {
             setNewData(relationTree[relationTreePosition]['process']['element_object']['symptoms'])
@@ -292,18 +301,17 @@ const Symptoms = ({relationTree, relationTreePosition}) => {
     }, [relationTree, relationTreePosition])
     
 
-
     // To change the value of selection useState variable.
     function onClick(e, value) {
+        setNewData(relationTree[relationTreePosition]['process']['element_object'][value])
+
         if (value === 'symptoms') {            
             setSymptomsStyle({backgroundColor:'rgba(220,220,220, 0.5)'});
-            setQuestionsStyle({backgroundColor:'white'});
-            setNewData(relationTree[0]['process']['element_object'][value])
+            setQuestionsStyle({backgroundColor:'white'});            
 
         } else {            
             setSymptomsStyle({backgroundColor:"white"});
-            setQuestionsStyle({backgroundColor:'rgba(220,220,220, 0.5)'});
-            setNewData(relationTree[0]['process']['element_object'][value])
+            setQuestionsStyle({backgroundColor:'rgba(220,220,220, 0.5)'});        
         }
     };    
     
@@ -377,17 +385,15 @@ export const InProgressEva = () => {
 
 
     // Getting the relation tree data
-    useEffect(() => {
-        // Relation tree data
+    useEffect(() => {        
         axiosService
-            //.get(`relations/${state.eva.relation}/get_object_tree`)
-            .get(`/relations_tree/get_queryset_filtered`, {params:{'id':state.eva.relation}})
+            .get(`relations/${state.eva.relation}/get_object_tree`, {params: {'eva_id': state.eva.id}})
             .then(res => {
                 setEvaToGo(fcnCountProcessesEvaluated(res.data.eva_scores));
 
                 const newData = fcnNewRelationTreeList(res.data.data);
                 const newDataCount = fcnCountInsideElements(newData); 
-                            
+       
                 setRelationTree(() => newDataCount);
                 setEvaScores(() => res.data.eva_scores);
             })
@@ -401,7 +407,7 @@ export const InProgressEva = () => {
     // Return in progress eva
     return (
         <div>
-            <InProgressEvaBar                
+            <InProgressEvaBar
                 evaToGo={evaToGo}
                 evaInfo={state.eva}
                 relationTree={relationTree}

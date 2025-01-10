@@ -28,9 +28,9 @@ const ViewModalProcess = (props) => {
 
     
      /* If the process wants to be viewed */
-     if (showViewModal.public_id !== '') {
+     if (showViewModal.id !== '') {
         axiosService
-            .get(`/element/${showViewModal.public_id}`)
+            .get(`/element/${showViewModal.id}`)
             .then(res => res.data)
             .then((data) => {
                 changeAdditionalColor();
@@ -55,7 +55,7 @@ const ViewModalProcess = (props) => {
         setShowViewModal(() => {
             return {
                 style:{visibility:'hidden', opacity:'0'},
-                public_id:''
+                id:''
             }
         });
     }

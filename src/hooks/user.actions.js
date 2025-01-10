@@ -4,19 +4,21 @@ import { useNavigate } from "react-router-dom";
 
 
 
+// Base url
+const BASE_URL = process.env.REACT_APP_API_URL;
+
+
+
 /* User actions */
-function useUserActions() {
+function useUserActions() {            
     /* Constants */
     const navigate = useNavigate();
-    const baseURL = "https://company-assessments-85bd491e25c3.herokuapp.com/api";
-    //const baseURL = "http://localhost:8000/api";
-
-
+    
 
     /* Login function */
-    function login(data) {
+    function login(data) {        
         return axios
-            .post(`${baseURL}/auth/login/`, data)
+            .post(`${BASE_URL}/auth/login/`, data)
             .then((res) => {                
                 setUserData(res);
                 navigate("/element")

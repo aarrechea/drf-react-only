@@ -112,7 +112,7 @@ const EvaluationPage = () => {
                 setEvaluationsList(data);
             })
             .catch(error => {
-                console.log("Error: ", error);
+                console.log("Error getting evaluations: ", error);
                 navigate('/');
             });
 
@@ -127,7 +127,7 @@ const EvaluationPage = () => {
                 setRelationsList(newArray);
             })
             .catch(error => {
-                console.log("Error: ", error);
+                console.log("Error getting relations: ", error);
                 navigate('/');
             });
 
@@ -141,7 +141,7 @@ const EvaluationPage = () => {
                 setCompaniesList(data);
             })
             .catch(error => {
-                console.log("Error: ", error);
+                console.log("Error getting companies: ", error);
                 navigate('/');
             });
     }, [navigate]);
@@ -269,7 +269,7 @@ const EvaluationPage = () => {
                 document.documentElement.scrollTop = 0;
             })
             .catch((error) => {
-                console.log("Error: " + error);
+                console.log("Error getting the data to create an evaluation: " + error);
             });
     }
 

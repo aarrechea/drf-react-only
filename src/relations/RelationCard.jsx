@@ -39,8 +39,8 @@ export const RelationCard = (props) => {
         const idRel = id;
 
         axiosService            
-            //.get(`/relations/${idRel}/get_object_tree/`)
-            .get(`/relations_tree/get_queryset_filtered`, {params:{'id':idRel}})
+            .get(`/relations/${idRel}/get_object_tree/`)
+            //.get(`/relations_tree/get_queryset_filtered`, {params:{'id':idRel}})
             .then(res => res.data)
             .then((data) => {                                  
                 fcnSetRelationView(data);

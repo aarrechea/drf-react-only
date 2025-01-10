@@ -5,11 +5,11 @@ import "./css/inProgressFirstBar.css"
 
 
 
-/* In progress bar component */
+/* In progress bar component - relation is actually the evaluation */
 const InProgressFirstBar = ({relation, saveDisabled, setDisplaySecurityQuestion, save, setAction}) => {
     /* To navigate to the previous page */
-    const navigate = useNavigate();
-
+    const navigate = useNavigate();    
+    
     /* Constant to set the buttons style */
     const style = {height:'4rem', backgroundColor:'rgba(255, 255, 255, 0.6', borderColor:'black'}
 

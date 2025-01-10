@@ -27,27 +27,25 @@ export const InProgressEvaBar = (props) => {
         {width:'14rem', height:'2.5rem', backgroundColor:'rgba(255, 255, 255, 0.6)', borderColor:'black'}
 
 
-    /*  Handle click.  
+    /*  Handle click.
         When changing relationTreePosition the inProgressBar component refreshes and updates the score
         of the process reflected in the input radio selected.
-    */    
-    function handleClick(e, value, index) {        
+    */
+    function handleClick(e, value, index) {
         if (value === 'return') {
             navigate('/evaluations-page');
 
         } else if (value === 'process') {
             if(index > 0 && relationTreePosition < Object.keys(relationTree).length - 1) {
-                setRelationTreePosition((prev) => prev + index);                
+                setRelationTreePosition((prev) => prev + index);
 
             } else if (index < 0 && relationTreePosition > 0) {
-                setRelationTreePosition((prev) => prev + index);                
+                setRelationTreePosition((prev) => prev + index);
             }
         
         } else if (value === 'capability') {
 
         }
-
-
     }; // --- end handle click ---
 
 

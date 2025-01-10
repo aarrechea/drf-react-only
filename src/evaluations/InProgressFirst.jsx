@@ -49,6 +49,7 @@ const InProgressFirst = () => {
         selected for the user */
         function handleSaveContinue() {
             fcnSaveEvaluation();
+            
             if (action === 'previous page') {
                 navigate(-1);
             } else {
